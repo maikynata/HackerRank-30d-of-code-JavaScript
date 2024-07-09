@@ -36,11 +36,41 @@ class Student extends Person {
     *   @param scores - An array of integers denoting the Person's test scores.
     */
     // Write your constructor here
-    constructor( firstName, lastName, idNumber, scores){
+    constructor(firstName, lastName, id, scores){
+        super();
         this.firstName = firstName;
         this.lastName = lastName;
-        this.idNumber = idNumber;
+        this.id = id;
         this.scores = scores;
+    }
+    
+    calculate() {
+        const id = this.id;
+        const scores = this.scores;
+        //const std = new Student()
+        //console.log (id);
+        
+        let sum = 0;
+        
+        for (let i = 0; i < scores.length; i++ ) {
+            //console.log (scores[i]);
+            sum += scores[i];
+        }
+        
+        let avgGrade = sum/2;
+        if (avgGrade >= 90 && avgGrade <= 100 ) {
+            return id, "O"
+        } else if (avgGrade >= 80 && avgGrade < 90 ) {
+            return "E"
+        } else if (avgGrade >= 70 && avgGrade < 80 ) {
+            return "A"
+        } else if (avgGrade >= 55 && avgGrade < 70 ) {
+            return "P"
+        } else if (avgGrade >= 40 && avgGrade < 55 ) {
+            return "D"
+        } else if (avgGrade < 40 ) {
+            return "T"
+        }
     }
 
     /*	
@@ -48,10 +78,7 @@ class Student extends Person {
     *   @return A character denoting the grade.
     */
     // Write your method here
-    calculate () {
-        const avarage = new Student(scores)
-        console.log (avarage);
-    }
+    
 }
 
 function main() {
